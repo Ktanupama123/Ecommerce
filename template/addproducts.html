@@ -1,0 +1,30 @@
+{% extends "productlist.html" %}
+{% block content %}
+{% include "navbar.html" %}
+<div style="background-image:url('https://static.vecteezy.com/system/resources/thumbnails/049/462/849/small_2x/creative-concept-of-online-shopping-with-shopping-cart-on-laptop-and-red-background-photo.jpeg');" >
+
+<div class="bg-red-100 py-12 flex items-center justify-center min-h-screen">
+    <div class="bg-red-200 p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-red-800 mb-6 text-center">Add New Product</h1>
+        <form method="POST" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+            <div class="space-y-4">
+                {{ form.as_p }}
+                {% if form.non_field_errors %}
+                    <div class="bg-red-100 text-red-700 p-4 rounded">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <button 
+                type="submit" 
+                class="w-full bg-red-800 hover:bg-green-500 text-white py-2 px-4 rounded-md text-lg font-medium"
+            >
+            Add New Product
+        </button>
+    </form>
+    </div>
+    </div>  
+    </div>
+    {% endblock content %}
+

@@ -1,0 +1,62 @@
+{% extends "productlist.html" %}
+{% block content %}
+
+<nav class="bg-red-800 text-white shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    
+      <div class="flex items-center space-x-2">
+        <img class="rounded-full w-10", src="https://www.shutterstock.com/image-vector/shopping-cart-icon-black-round-260nw-417279193.jpg" alt="cart Logo" class="h-8 w-8">
+        <span class="text-xl font-bold"><a href="{% url "productlist" %}" >shop your best deals</a></span>
+      </div>
+      <div class="ml-3">
+        {% comment %} {% if not user.is_authenticated %} {% endcomment %}
+        <a href="{% url 'productlist'%}" class="rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 hover:text-white">home</a>
+        <a href="{% url 'addproduct'%}" class="rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 hover:text-white">Add Product</a>
+        <a href="{% url 'login'%}" class="rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 hover:text-white">Signin</a>
+        <a href="{% url 'signup'%}" class="rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 hover:text-white">SignUp</a> 
+        {% comment %} {% endif %}  {% endcomment %}
+
+
+      
+      <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+          <div class="py-1">
+            {% comment %} {% if user.is_authenticated %}
+            <a href="{% url 'signout' %}" type="submit" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">SignOut</a>
+            {% endif %} {% endcomment %}
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Help</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <a href="{% url 'signout'%}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Signout</a> 
+        {% comment %} {% endif %}  {% endcomment %}
+              
+              {% comment %} <a href="{% url 'signout' %}" type="submit" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">SignOut</a> {% endcomment %}
+
+          </div>
+      </div>
+      {% comment %} {% if not user.is_authenticated %}
+            <a href="{% url 'login'%}" class="rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 hover:text-white">Signin</a>
+            <a href="{% url 'signup'%}" class="rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 hover:text-white">SignUp</a> 
+            {% endif %}
+     {% endcomment %}
+            <button onclick="toggleDropdown()" class="rounded-md px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 focus:outline-none">
+                More
+            </button>
+            <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+              <div class="py-1">
+                {% comment %} {% if user.is_authenticated %}
+                <a href="{% url 'signout' %}" type="submit" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">SignOut</a>
+                {% endif %} {% endcomment %}
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">home</a>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Help</a>
+                  {% comment %} <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a> {% endcomment %}
+                  
+                  {% comment %} <a href="{% url 'signout' %}" type="submit" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">SignOut</a> {% endcomment %}
+
+              </div>
+          </div>
+        
+    
+    </div>
+  </nav>
+{% endblock content %}
+ 

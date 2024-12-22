@@ -1,0 +1,46 @@
+{% extends "productlist.html" %}
+{% block content %}
+{% include "navbar.html" %}
+<div class="flex items-center justify-center min-h-screen bg-cover"style="background-image:url('https://static.vecteezy.com/system/resources/thumbnails/049/462/849/small_2x/creative-concept-of-online-shopping-with-shopping-cart-on-laptop-and-red-background-photo.jpeg');"> 
+    <div class="bg-red-200 p-8 rounded-lg shadow-lg w-80">
+       
+        <form method='POST'>
+         {% csrf_token %}
+         
+         <h2 class="text-center text-2xl text-red-600 font-bold mb-6">SIGN IN</h2>
+        
+        
+        <div class="mb-4">
+            <input type="text" name="username" placeholder="username"
+              class="w-full p-2 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue- bg-red-100">
+              {% if errors.user%}
+              <p style="color:red">{{errors.user}}</p>
+              {% endif%}
+        </div>
+        
+
+        <div class="mb-4">
+            <input type="password" name="password" placeholder="password"
+                class="w-full p-2 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 bg-red-100">
+                {% if errors.password%}
+        <p style="color:red">{{errors.password}}</p>
+        {% endif%}
+    </div>
+        
+    
+    <div class="flex justify-between text-sm mb-6 text-gray-400">
+        <a href="#" class="hover:underline">Forgot Password</a>
+        <a href="{% url 'signup' %}" class="hover:underline text-red-700 ">Signup</a>
+    </div>
+    
+    
+    <button class="w-full py-2 bg-red-800 text-black font-semibold rounded-md hover:bg-blue-300 transition">
+        SignIn
+    </button>
+    
+        
+
+</div>
+    </div>
+    
+    {% endblock content %}
